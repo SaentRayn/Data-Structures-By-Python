@@ -52,3 +52,6 @@
 <br>
 </details>
 <br>
+
+
+[Next Data Structure](3-topic.md)

@@ -55,3 +55,6 @@ A Tree is often used for analyzing a collection of data in a type of order that 
 <br>
 </details>
 <br>
+
+
+[Next Data Structure](2-topic.md)

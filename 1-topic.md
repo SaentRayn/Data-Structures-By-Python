@@ -16,17 +16,42 @@ A Tree is often used for analyzing a collection of data in a type of order that 
 <details>
 <summary>Why Use Them:</summary>
 <br>
-
 </details>
 <br>
+
+
 <details>
 <summary>Limitations:</summary>
 <br>
-
 </details>
 <br>
-### Example Problem
 
-#### Problem
+### Example Problems:
 
-#### Solution
+<details>
+<summary>Problem:</summary>
+<br>
+</details>
+<br>
+
+
+<details>
+<summary>Solution For Example:</summary>
+<br>
+</details>
+<br>
+
+### Your Turn To Practice:
+
+<details>
+<summary>Problem:</summary>
+<br>
+</details>
+<br>
+
+
+<details>
+<summary>A Possible Solution:</summary>
+<br>
+</details>
+<br>

@@ -1,4 +1,4 @@
-## Trees: Growing The Future
+## Trees: Grow()ing The Future
 
 The first data structure we aim to take a look at are Trees.
 

@@ -40,22 +40,313 @@ Depending on the versality of the program and what is needed from a data structu
 
 <details>
 <summary><font size=5><b>Example Problem:</b></summary>
+<font size=3><br>
 
-<font size=3><b>Problem:</b>
+Only breifly hinted at above Trees obviously utilize recursion. It is possible to use the tree without but to save computational power this is the most efficient method. For the Practice Problem we will utilize recursion to solve a search through a BST, or Binary Search Tree. For this problem we will just address basic recursion for implementing the insert function. To begin we have the in initial insert function that is called in the use of the tree which will then reference a recursive _insert() function.
+
+```python
+def insert(self, data):
+        """
+        Insert 'data' into the BST.  If the BST
+        is empty, then set the root equal to the new 
+        node.  Otherwise, use _insert to recursively
+        find the location to insert.
+        """
+        if self.root is None:
+            self.root = BST.Node(data)
+        elif data in tree:
+          return
+        else:
+            self._insert(data, self.root)  # Start at the root
+```
+
+<details>
+<summary><b>Problem:</b></summary>
+
+* This function was taken from a previous assignment completed for CSE 212
+
+Before we implement a full BST for the tree walk through each comment and try to visualize as we attempt to insert an item into the tree. As mentioned above, for this insert we will analyze a current node and move down the tree checking whether it should be on the left or right of the current node and if there is an empty spot to place the new node.
+
+```python
+    def _insert(self, data, node):
+        """
+        This function will look for a place to insert a node
+        with 'data' inside of it.  The current sub-tree is
+        represented by 'node'.  This function is intended to be
+        called the first time by the insert function.
+        """
+        # The data belongs on the left side.
+
+        # We found an empty spot
+
+        # Need to keep looking.  Call _insert
+        # recursively on the left sub-tree.
+
+        # The data belongs on the right side.
+
+        # We found an empty spot
+
+        # Need to keep looking.  Call _insert
+        # recursively on the right sub-tree.
+
+```
+</details>
 
 <details>
 <summary><font size=3><b>Solution:</b></summary>
+
+* This function was taken from a previous assignment completed for CSE 212
+
+Now see how the insert will take a data and current node. These values are checked and then we move either left or right down a tree. That place is then checked if it is empty or not. If not then recursion is implemented by calling the _insert(data, current node). This will then repeat the process until an empty spot for the new node is found.
+
+```python
+    def _insert(self, data, node):
+        """
+        This function will look for a place to insert a node
+        with 'data' inside of it.  The current sub-tree is
+        represented by 'node'.  This function is intended to be
+        called the first time by the insert function.
+        """
+        if data < node.data:
+            # The data belongs on the left side.
+            if node.left is None:
+                # We found an empty spot
+                node.left = BST.Node(data)
+            else:
+                # Need to keep looking.  Call _insert
+                # recursively on the left sub-tree.
+                self._insert(data, node.left)
+        else:
+            # The data belongs on the right side.
+            if node.right is None:
+                # We found an empty spot
+                node.right = BST.Node(data)
+            else:
+                # Need to keep looking.  Call _insert
+                # recursively on the right sub-tree.
+                self._insert(data, node.right)
+```
 </details>
+
 </details>
 <br>
 
 <details>
 <summary><font size=5><b>Practice Problem:</b></summary>
+<font size=3><br>
 
-<font size=3><b>Problem:</b>
+Below is a practice problem that will ask you to implement a reverse travers through a tree and then print off the tree. When following the instruction visualize how the tree works. If needed comment out some of the inserts and experiement how the tree will organize where they need to be similar to how we discussed a family tree how the child/leaf will simply be attached below their corresponding parent node.
+<details>
+<summary><b>Problem:</b></summary>
+<br>
 
+[Code For Practice Problem](Python%20Files/Trees-Prob.py)
+
+```python
+class Tree:
+  
+  class Node:
+
+    def __init__(self, data, left=None, right=None):
+      self.left = left
+      self.right = right
+      self.data = data
+  
+  def __init__(self):
+    self.root = None
+ 
+  def insert(self, data):
+    """
+    Insert
+    """
+    if self.root is None:
+        self.root = Tree.Node(data)
+    elif data in tree:
+      return
+    else:
+        self._insert(data, self.root)
+
+  def _insert(self, data, node):
+    """
+    Insert recursion
+    """
+    if data < node.data:
+      if node.left is None:
+        node.left = Tree.Node(data)
+      else:
+        self._insert(data, node.left)
+    else:
+      if node.right is None:
+        node.right = Tree.Node(data)
+      else:
+        self._insert(data, node.right)
+  
+
+  def __iter__(self):
+    """
+    Perform a forward traversal
+    """
+    yield from self._traverse_forward(self.root)
+
+  def _traverse_forward(self, node):
+    if node is not None:
+      yield from self._traverse_forward(node.left)
+      yield node.data
+      yield from self._traverse_forward(node.right)
+
+
+  def __reversed__(self):
+    """
+    Perform a reversed forward traversal (reversed in-order traversal)
+
+    """
+
+  def _traverse_backward(self, node):
+    """
+    Does a backwards traversal (reverse in-order traversal).  
+    """
+  
+
+tree = Tree()
+tree.insert(5)
+tree.insert(3)
+tree.insert(7)
+
+print("Forward (Left -> Right)")
+for x in tree:
+    print(x)
+
+##############################################################################
+# Problems To Solve
+##############################################################################    
+
+"""
+This is the first step in the problem. 
+Implement the reverse/traverse-backward functions.
+"""
+print("Forward (Right -> Left)")
+for x in reversed(tree):
+    print(x)
+
+"""
+After the traverse backward is implemented add this set to the existing tree.
+After the values are inserted print the countdown.
+"""
+nlist = (4, 6, 2, 8, 1, 9)
+
+# Insert the values of the list into the tree
+
+# Print the Countdown
+print("\nCountdown to Take-Off")
+```
+
+</details>
 <details>
 <summary><font size=3><b>Solution:</b></summary>
+<br>
+
+[Code For Solution](Python%20Files/Trees-Sol.py)
+
+```python
+class Tree:
+  
+  class Node:
+
+    def __init__(self, data, left=None, right=None):
+      self.left = left
+      self.right = right
+      self.data = data
+  
+  def __init__(self):
+    self.root = None
+ 
+  def insert(self, data):
+    """
+    Insert
+    """
+    if self.root is None:
+        self.root = Tree.Node(data)
+    elif data in tree:
+      return
+    else:
+        self._insert(data, self.root)
+
+  def _insert(self, data, node):
+    """
+    Insert recursion
+    """
+    if data < node.data:
+      if node.left is None:
+        node.left = Tree.Node(data)
+      else:
+        self._insert(data, node.left)
+    else:
+      if node.right is None:
+        node.right = Tree.Node(data)
+      else:
+        self._insert(data, node.right)
+  
+  def __iter__(self):
+    """
+    Perform a forward traversal
+    """
+
+    yield from self._traverse_forward(self.root)
+
+  def _traverse_forward(self, node):
+    if node is not None:
+      yield from self._traverse_forward(node.left)
+      yield node.data
+      yield from self._traverse_forward(node.right)
+
+  def __reversed__(self):
+    """
+    Perform a reversed forward traversal (reversed in-order traversal)
+
+    """        
+    yield from self._traverse_backward(self.root)
+
+  def _traverse_backward(self, node):
+    """
+    Does a backwards traversal (reverse in-order traversal).  
+    """
+    if node is not None:
+      yield from self._traverse_backward(node.right)
+      yield node.data
+      yield from self._traverse_backward(node.left)
+  
+
+tree = Tree()
+tree.insert(5)
+tree.insert(3)
+tree.insert(7)
+
+print("Forward (Left -> Right)")
+for x in tree:
+    print(x)
+
+"""
+This is the first step in the problem. 
+Implement the reverse/traverse-backward functions.
+"""
+print("\nForward (Right -> Left)")
+for x in reversed(tree):
+    print(x)
+
+"""
+After the traverse backward is implemented add this set to the existing tree.
+Then implement the traverse backward print for it to print 9, 8, 7, 6, 5, 4, 3, 2, 1
+"""
+nlist = (4, 6, 2, 8, 1, 9)
+
+for i in nlist:
+  tree.insert(i)
+
+print("\nCountdown to Take-Off")
+for x in reversed(tree):
+    print(x)
+```
+
 </details>
 </details>
 </br>

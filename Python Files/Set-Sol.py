@@ -30,5 +30,8 @@ print(union(s1,s2)) # Should show {1, 2, 3, 4, 5}
 
 s1 = {1,2,3,100}
 s2 = {6,7,8,100}
-print(intersection(s1,s2))  # Should show {100}
+print(intersection(s1,s2))  # Should show {100}7
+print("Before Sort: ")
 print(union(s1,s2)) # Should show {1, 2, 3, 100, 6, 7, 8}
+print("After Sort: ")
+print(sorted(union(s1,s2)))

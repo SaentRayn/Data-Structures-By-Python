@@ -45,6 +45,8 @@ The first data structure we aim to take a look at are Trees.
 <summary><font size=5><b>Example Problem:</b></summary>
 <font size=3><br>
 
+*\* This function was taken from a previous assignment completed for CSE 212*
+
 > Only breifly hinted at above Trees obviously utilize recursion. It is possible to use the tree without but to save computational power this is the most efficient method. For the Practice Problem we will utilize recursion to solve a search through a BST, or Binary Search Tree. For this problem we will just address basic recursion for implementing the insert function. To begin we have the in initial insert function that is called in the use of the tree which will then reference a recursive _insert() function.
 
 ```python
